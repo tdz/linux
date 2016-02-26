@@ -1,0 +1,13 @@
+config DRM_SISVGA
+	tristate "SiS video cards (KMS driver)"
+	depends on DRM && PCI && AGP
+	select FB_SYS_FILLRECT
+	select FB_SYS_COPYAREA
+	select FB_SYS_IMAGEBLIT
+	select DRM_KMS_HELPER
+	select DRM_KMS_FB_HELPER
+	select DRM_TTM
+	help
+	  Choose this option if you have a SiS 305 or compatible video
+          chipset. If M is selected the module will be called sisvga. AGP
+          support is required for this driver to work.
