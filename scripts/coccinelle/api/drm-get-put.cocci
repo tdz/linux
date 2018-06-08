@@ -16,8 +16,6 @@ expression object;
 @@
 
 (
-- drm_dev_unref(object)
-+ drm_dev_put(object)
 )
 
 @r depends on report@
@@ -26,7 +24,6 @@ position p;
 @@
 
 (
-drm_dev_unref@p(object)
 )
 
 @script:python depends on report@

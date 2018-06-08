@@ -524,7 +524,7 @@ static int etnaviv_bind(struct device *dev)
 	if (!priv) {
 		dev_err(dev, "failed to allocate private data\n");
 		ret = -ENOMEM;
-		goto out_unref;
+		goto out_put;
 	}
 	drm->dev_private = priv;
 
@@ -550,8 +550,8 @@ out_register:
 	component_unbind_all(dev, drm);
 out_bind:
 	kfree(priv);
-out_unref:
-	drm_dev_unref(drm);
+out_put:
+	drm_dev_put(drm);
 
 	return ret;
 }
@@ -568,7 +568,7 @@ static void etnaviv_unbind(struct device *dev)
 	drm->dev_private = NULL;
 	kfree(priv);
 
-	drm_dev_unref(drm);
+	drm_dev_put(drm);
 }
 
 static const struct component_master_ops etnaviv_master_ops = {

@@ -601,7 +601,7 @@ err_cleanup_modeset:
 	omap_drm_irq_uninstall(ddev);
 err_free_drm_dev:
 	omap_gem_deinit(ddev);
-	drm_dev_unref(ddev);
+	drm_dev_put(ddev);
 err_destroy_wq:
 	destroy_workqueue(priv->wq);
 	omap_disconnect_dssdevs();
@@ -630,7 +630,7 @@ static void omapdrm_cleanup(struct omap_drm_private *priv)
 	omap_drm_irq_uninstall(ddev);
 	omap_gem_deinit(ddev);
 
-	drm_dev_unref(ddev);
+	drm_dev_put(ddev);
 
 	destroy_workqueue(priv->wq);
 
