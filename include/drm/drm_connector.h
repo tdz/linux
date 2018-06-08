@@ -1059,30 +1059,6 @@ static inline void drm_connector_put(struct drm_connector *connector)
 	drm_mode_object_put(&connector->base);
 }
 
-/**
- * drm_connector_reference - acquire a connector reference
- * @connector: DRM connector
- *
- * This is a compatibility alias for drm_connector_get() and should not be
- * used by new code.
- */
-static inline void drm_connector_reference(struct drm_connector *connector)
-{
-	drm_connector_get(connector);
-}
-
-/**
- * drm_connector_unreference - release a connector reference
- * @connector: DRM connector
- *
- * This is a compatibility alias for drm_connector_put() and should not be
- * used by new code.
- */
-static inline void drm_connector_unreference(struct drm_connector *connector)
-{
-	drm_connector_put(connector);
-}
-
 const char *drm_get_connector_status_name(enum drm_connector_status status);
 const char *drm_get_subpixel_order_name(enum subpixel_order order);
 const char *drm_get_dpms_name(int val);

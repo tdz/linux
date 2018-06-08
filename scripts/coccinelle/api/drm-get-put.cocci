@@ -16,12 +16,6 @@ expression object;
 @@
 
 (
-- drm_connector_reference(object)
-+ drm_connector_get(object)
-|
-- drm_connector_unreference(object)
-+ drm_connector_put(object)
-|
 - drm_framebuffer_reference(object)
 + drm_framebuffer_get(object)
 |
@@ -50,10 +44,6 @@ position p;
 @@
 
 (
-drm_connector_unreference@p(object)
-|
-drm_connector_reference@p(object)
-|
 drm_framebuffer_unreference@p(object)
 |
 drm_framebuffer_reference@p(object)
