@@ -16,12 +16,6 @@ expression object;
 @@
 
 (
-- drm_framebuffer_reference(object)
-+ drm_framebuffer_get(object)
-|
-- drm_framebuffer_unreference(object)
-+ drm_framebuffer_put(object)
-|
 - drm_gem_object_reference(object)
 + drm_gem_object_get(object)
 |
@@ -44,10 +38,6 @@ position p;
 @@
 
 (
-drm_framebuffer_unreference@p(object)
-|
-drm_framebuffer_reference@p(object)
-|
 drm_gem_object_unreference@p(object)
 |
 drm_gem_object_reference@p(object)
