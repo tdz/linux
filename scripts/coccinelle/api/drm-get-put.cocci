@@ -16,12 +16,6 @@ expression object;
 @@
 
 (
-- drm_gem_object_reference(object)
-+ drm_gem_object_get(object)
-|
-- drm_gem_object_unreference(object)
-+ drm_gem_object_put(object)
-|
 - __drm_gem_object_unreference(object)
 + __drm_gem_object_put(object)
 |
@@ -38,10 +32,6 @@ position p;
 @@
 
 (
-drm_gem_object_unreference@p(object)
-|
-drm_gem_object_reference@p(object)
-|
 __drm_gem_object_unreference(object)
 |
 drm_gem_object_unreference_unlocked(object)
