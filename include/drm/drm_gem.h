@@ -222,19 +222,6 @@ __drm_gem_object_put(struct drm_gem_object *obj)
 void drm_gem_object_put_unlocked(struct drm_gem_object *obj);
 void drm_gem_object_put(struct drm_gem_object *obj);
 
-/**
- * drm_gem_object_unreference_unlocked - release a GEM buffer object reference
- * @obj: GEM buffer object
- *
- * This is a compatibility alias for drm_gem_object_put_unlocked() and should
- * not be used by new code.
- */
-static inline void
-drm_gem_object_unreference_unlocked(struct drm_gem_object *obj)
-{
-	drm_gem_object_put_unlocked(obj);
-}
-
 int drm_gem_handle_create(struct drm_file *file_priv,
 			  struct drm_gem_object *obj,
 			  u32 *handlep);
